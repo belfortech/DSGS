@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}Audit & Assurance- Desert Storm Global{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+  <main class="main">
+
+   <!-- Services Hero Section with Overlay -->
+   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+    <!-- Purple Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+  
+    <!-- Text Content -->
+    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+      <h1 class="text-white fw-bold display-5">Audit and Assurance</h1>
+    </div>
+  </section>
+
+<section class="py-5" style="background-color: #F2F2F2;">
+    <div class="container">
+       
+      </div>
+  
+      <div class="mb-4">
+        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
+      </div>
+  
+      <p class="text-muted mb-4">
+        Desert Storm Global Sourcing & Procurement Consultants provides comprehensive Audit & Assurance services tailored to meet the unique needs of businesses operating in diverse industries. Our team of seasoned professionals is dedicated to delivering accurate, reliable, and insightful assessments that go beyond mere compliance to add strategic value to your organization.        
+      </p>
+  
+      <h5 class="fw-bold text-primary">Key Components of Our Audit & Assurance Services:</h5>
+      
+      <div class="ps-3 text-dark">
+       
+<p><strong>Financial Audits:</strong>Our financial audit services ensure the accuracy and reliability of financial statements. We conduct thorough examinations of financial records, transactions, and reporting processes, providing stakeholders with confidence in the financial health and transparency of your organization.</p>
+
+<p><strong>Operational Audits:</strong>Desert Storm performs operational audits to evaluate the efficiency and effectiveness of internal processes. This includes a comprehensive review of procurement, supply chain, and business operations, identifying areas for improvement and optimization.
+</p>
+
+
+<p><strong>Compliance Audits:</strong>We conduct compliance audits to ensure adherence to industry regulations, internal policies, and legal requirements. Our experts assess the organization’s compliance framework, offering recommendations to mitigate risks and enhance governance.
+</p>
+
+<p><strong>Risk Assessment and Management:
+</strong>Our audit services include a robust risk assessment to identify potential risks and vulnerabilities in various aspects of your business. We work collaboratively with your team to develop effective risk management strategies, ensuring proactive mitigation and long-term resilience.
+</p>
+
+
+<p><strong>Internal Controls Evaluation:</strong>Desert Storm evaluates and enhances internal control systems to safeguard assets, prevent fraud, and ensure the accuracy of financial reporting. Our experts provide recommendations for strengthening internal controls to align with industry best practices.
+</p>
+
+
+<p><strong>Technology and Data Audits:</strong>With the increasing reliance on technology, our services include audits of IT systems, data security, and privacy compliance. We assess the effectiveness of information systems, ensuring the confidentiality, integrity, and availability of critical data.
+</p>
+
+
+        
+    </div>
+  </section>
+  {% endblock %}

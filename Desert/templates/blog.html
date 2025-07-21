@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}Our Blog - Dsgs-procureconslt{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Preloader -->
+<div id="preloader" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">
+  <img src="{% static 'img/desert_logo.png' %}" alt="Loading..." style="width: 50px;">
+</div>
+
+  <main class="main">
+
+
+
+
+ <!-- Blog Hero Section with Overlay -->
+ <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+  <!-- Purple Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+
+  <!-- Text Content -->
+  <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+    <h1 class="text-white fw-bold display-5">Blog</h1>
+  </div>
+</section>
+
+
+
+
+
+<!-- Our Blog -->
+<section id="clients-partners"></section>
+<section class="py-5" style="background-color: #f7f7f7;" data-aos="fade-up">
+    <div class="container text-center">
+  
+     
+
+        <!-- Section Heading -->
+      <h3 class="fw-bold mb-3">Our Blog</h3>
+      <div class="d-flex justify-content-center mb-5">
+        <div style="height: 3px; width: 60px; background-color: #f4a100; margin-right: 10px;"></div>
+        <div style="height: 3px; width: 60px; background-color: #f4a100;"></div>
+      </div>
+      
+  
+      <div class="swiper clientSwiper">
+        <div class="swiper-wrapper">
+  
+          <!-- Blog 1 -->
+          <div class="swiper-slide">
+            <img src="{% static 'img/image_1.jpg' %}" class="img-fluid mb-2" alt="image" style="height: 50px;">
+            <p class="small fw-semibold">Transforming Public Procurement: From Compliance to Strategic Value</p>
+          </div>
+
+          <!-- Blog 2 -->
+          <div class="swiper-slide">
+            <img src="{% static 'img/image_12.png' %}" class="img-fluid mb-2" alt="Donor Logo" style="height: 50px;">
+            <p class="small fw-semibold">How Digital Tools Are Revolutionizing Government Procurement</p>
+          </div>
+  
+          <!-- Blog 3 -->
+          <div class="swiper-slide">
+            <img src="{% static 'img/image_11.png' %}" class="img-fluid mb-2" alt="NGO Logo" style="height: 50px;">
+            <p class="small fw-semibold">Strategic Negotiation in High-Stakes International Procurements</p>
+          </div>
+  
+          <!-- Blog 4 -->
+          <div class="swiper-slide">
+            <img src="{% static 'img/image_3.png' %}" class="img-fluid mb-2" alt="Gov Logo" style="height: 50px;">
+            <p class="small fw-semibold">Building Resilient Supply Chains in Emerging Markets</p>
+          </div>
+  
+          <!-- Blog 5 -->
+          <div class="swiper-slide">
+            <img src="{% static 'img/image_2.png' %}" class="img-fluid mb-2" alt="Oversight Logo" style="height: 50px;">
+            <p class="small fw-semibold">Unlocking Global Financing For Government and Donor Projects</p>
+          </div>
+          
+           <!-- Blog 6 -->
+          <div class="swiper-slide">
+            <img src="{% static 'img/image_10.png' %}" class="img-fluid mb-2" alt="Gov Logo" style="height: 50px;">
+            <p class="small fw-semibold">Best Practices in PSM Planning and Forecasting For Health Programs</p>
+          </div>
+  
+        </div>
+  
+        
+      </div>
+    </div>
+  </section>
+  
+  <section class="container py-5">
+  <!-- Title -->
+  <h1 class="fw-bold mb-3">Upcoming event</h1>
+
+  <!-- Meta Info -->
+  <div class="border-start ps-3 mb-4" style="border-left: 4px solid #007bff;">
+    <p class="mb-0 text-muted">Published on 15 April 2025</p>
+    <small class="text-muted">3 min read</small>
+  </div>
+
+  <!-- Blog Image -->
+  <img src="{% static 'img/image_2.png' %}" alt="Blog Image" class="img-fluid rounded mb-4" style="max-width: 100%; height: auto;">
+
+  <!-- Blog Content -->
+  
+  
+  <p style="text-align: justify; font-family: 'Montserrat', sans-serif;">
+ Get ready for an impactful event hosted by DSGS-ProcureConsult-where public procurement meets innovation.This exclusive gathering will bring together procurement professionals, policy advisors, and institutional leaders for a day of insightful discussions, strategic dialogue, and interactive sessions.Whether you're aiming to enhance procurement efficiency, explore global sourcing strategies,or connect with like-minded experts, this event is crafted for you.Stay tuned for official updates-this is where transformation begins.
+</p>
+
+</section>
+
+   
+  <hr>
+
+<div class="d-flex justify-content-between align-items-center">
+  <p class="mb-0 fw-semibold">Share this post</p>
+  <div class="d-flex gap-3">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+      <i class="bi bi-facebook fs-5"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}" target="_blank">
+      <i class="bi bi-twitter fs-5"></i>
+    </a>
+    
+    <a href="mailto:?subject={{ blog.title }}&body=Check out this post: {{ request.build_absolute_uri }}">
+      <i class="bi bi-envelope fs-5"></i>
+    </a>
+  </div>
+</div>
+
+<hr>
+
+
+
+
+
+
+
+    {%endblock%}

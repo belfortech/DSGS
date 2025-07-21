@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}Our Services - Dsgs-procureconslt{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Preloader -->
+<div id="preloader" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">
+  <img src="{% static 'img/desert_logo.png' %}" alt="Loading..." style="width: 50px;">
+</div>
+
+  <main class="main">
+
+ <!-- Services Hero Section with Overlay -->
+ <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+  <!-- Purple Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+
+  <!-- Text Content -->
+  <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+    <h1 class="text-white fw-bold display-5">Our Services</h1>
+  </div>
+</section>
+  
+  <!-- Services Grid -->
+  <section class="py-5" style="background-color: #f2f2f2;"  data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+      <div class="row g-4">
+  
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="bg-white shadow-sm h-100 hover-bounce">
+            <img src="{% static 'img/public_procurement.jpg' %}" class="img-fluid w-100" alt="PMS Strategy">
+            <div class="p-3 d-flex align-items-start">
+              <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              <a href="{% url 'procurement_strategy' %}" class="text-decoration-none text-success">
+                Public Procurement Strategy and Advisory
+              </a>
+              
+            </div>
+          </div>
+        </div>
+  
+       
+  
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="bg-white shadow-sm h-100 hover-bounce">
+            <img src="{% static 'img/investment.jpg' %}" class="img-fluid w-100" alt="Capacity Building">
+            <div class="p-3 d-flex align-items-start">
+              <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              <a href="{% url 'capacity_building' %}" class="text-decoration-none text-success">
+                Procurement Capacity Building And Training
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+        
+    
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/psm.jpg' %}" class="img-fluid w-100" alt="PSM Planning">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'psm_planning' %}" class="text-decoration-none text-success">
+                  PSM Planning
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/procurement_transformation.jpg' %}" class="img-fluid w-100" alt="Procurement Transformation">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'procurement_transformation' %}" class="text-decoration-none text-success">
+                  Procurement Transformation
+                </a>
+              </div>
+            </div>
+          </div>
+
+          
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/audit_assurance.jpg' %}" class="img-fluid w-100" alt="Audit">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'audit_assurance' %}" class="text-decoration-none text-success">
+                  Audit and Assurance
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/quantification_2.jpg' %}" class="img-fluid w-100" alt="Quantification">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'quantification_budgeting' %}" class="text-decoration-none text-success">
+                  Quantification and Budgeting
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/african_finance_consulting.jpg' %}" class="img-fluid w-100" alt="Logistics Management">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'global_financing' %}" class="text-decoration-none text-success">
+                  Global Financing ,Sourcing and Negotiation Consultancy
+                </a>
+              </div>
+            </div>
+          </div>
+
+          
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/procurement_2.jpg' %}" class="img-fluid w-100" alt="Procurement Audit">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'procurement_audit' %}" class="text-decoration-none text-success">
+                  Procurement Audit and Compliance Reviews
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 hover-bounce">
+              <img src="{% static 'img/international_business_opportunities.jpg' %}" class="img-fluid w-100" alt="International Business">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <a href="{% url 'international_business' %}" class="text-decoration-none text-success">
+                  International Business Opportunities
+                </a>
+              </div>
+            </div>
+          </div>
+    
+         
+  
+      
+  
+      </div>
+    </div>
+  </section>
+  
+
+
+
+    {%endblock%}

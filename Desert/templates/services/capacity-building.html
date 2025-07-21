@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}Capacity Building- Desert Storm Global{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+  <main class="main">
+
+   <!-- Services Hero Section with Overlay -->
+   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+    <!-- Purple Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+  
+    <!-- Text Content -->
+    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+      <h1 class="text-white fw-bold display-5">Capacity Building</h1>
+    </div>
+  </section>
+
+<section class="py-5" style="background-color: #F2F2F2;"  data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+       
+      </div>
+
+
+      <div class="mb-4">
+        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
+      </div>
+  
+      <h5 class="fw-bold text-primary">Key Components of Our Procurement Capacity Building and Training Services:</h5>
+   
+      
+      <div class="ps-3 text-dark">
+       
+<p><strong>Institutional Skills Development:</strong>We design and deliver training programs focused on strengthening the procurement competencies of government agencies, PIUs, and donor-funded institutions. Topics include public procurement laws, tendering processes, and contract management, tailored to align with both national and international standards.</p>
+
+<p><strong>Training for Tender Committees & Evaluation Panels:</strong>Our workshops equip tender committee members with the skills to manage procurement processes transparently and efficiently. We cover evaluation techniques, risk mitigation in supplier selection, and ethical standards in procurement.</p>
+
+
+<p><strong>Procurement Planning & Budgeting Workshops:</strong>We guide participants through the full cycle of procurement planning — from needs assessment and market analysis to procurement method selection and budgeting. Participants gain tools to draft realistic, fundable procurement plans.
+</p>
+
+
+
+
+
+<h5 class="fw-bold text-primary">Benefits of Choosing Desert Storm for Procurement Capacity Building:</h5>
+
+<p><strong>Improved Procurement Outcomes:</strong>Well-trained teams reduce procurement delays, errors, and compliance risks — leading to more efficient and value-driven procurement.
+</p>
+
+
+<p><strong>Donor & Stakeholder Confidence:</strong>Demonstrating trained and competent procurement teams enhances your institution’s credibility with funding agencies and international stakeholders.
+</p>
+
+<p><strong>Sustainable Institutional Growth:</strong>Our training programs embed long-term procurement best practices within institutions, reducing reliance on external consultants and enhancing autonomy.
+</p>
+
+
+
+
+        
+    </div>
+  </section>
+
+
+
+      {%endblock%}

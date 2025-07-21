@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}Procurement Audit- Desert Storm Global{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+  <main class="main">
+
+   <!-- Services Hero Section with Overlay -->
+   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+    <!-- Purple Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+  
+    <!-- Text Content -->
+    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+      <h1 class="text-white fw-bold display-5">Procurement Audit</h1>
+    </div>
+  </section>
+
+<section class="py-5" style="background-color: #F2F2F2;"  data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+       
+      </div>
+
+
+      <div class="mb-4">
+        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
+      </div>
+  
+      <h5 class="fw-bold text-primary">Key Components of Our Procurement Audit Services:</h5>
+   
+      
+      <div class="ps-3 text-dark">
+       
+<p><strong>Regulatory & Policy Compliance:</strong>We assess alignment with applicable national procurement laws, donor procurement frameworks (e.g., World Bank, USAID, UN), and institutional policies.</p>
+
+<p><strong>Process Integrity & Transparency:</strong>Our audits evaluate whether procurement processes—such as tendering, evaluation, and contract award—are conducted fairly, competitively, and transparently. </p>
+
+
+<p><strong>Risk Identification & Mitigation:</strong>We identify procurement risks including fraud, conflict of interest, weak internal controls, and recommend practical mitigation strategies.
+</p>
+
+<p><strong>Contract Management Audit:</strong>We review how contracts are managed post-award—including delivery, payment, variations, and performance monitoring—to ensure obligations are fulfilled efficiently.
+</p>
+
+
+
+
+
+
+<h5 class="fw-bold text-primary">Why Choose DSGS for Your Procurement Audit?</h5>
+
+<p><strong>Independence & Objectivity:</strong>As a trusted third party, we offer impartial insights that foster accountability and improved decision-making.
+</p>
+
+
+<p><strong>Expertise in Public & Donor-Funded Procurement:</strong>Our auditors are well-versed in government frameworks and international donor standards, ensuring relevance across sectors and regions.
+</p>
+
+<p><strong>Confidentiality & Professional Integrity:</strong>We uphold the highest standards of confidentiality, ethics, and professionalism throughout the audit process.
+</p>
+
+
+
+
+
+        
+    </div>
+  </section>
+
+
+
+      {%endblock%}

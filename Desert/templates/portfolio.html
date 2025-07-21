@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}Our Portfolio- Dsgs-procureconslt{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Preloader -->
+<div id="preloader" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">
+  <img src="{% static 'img/desert_logo.png' %}" alt="Loading..." style="width: 50px;">
+</div>
+
+  <main class="main">
+
+
+
+  <!-- Portfolio Hero Section with Overlay -->
+<section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+    <!-- Purple Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+  
+    <!-- Text Content -->
+    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+      <h1 class="text-white fw-bold display-5">Portfolio</h1>
+    </div>
+  </section>
+  
+  
+  <!-- Services Grid -->
+  <section class="py-5" style="background-color: #f2f2f2;"  data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+      <div class="row g-4">
+  
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+            <img src="{% static 'img/psm.jpg' %}" class="img-fluid w-100" alt="PMS Strategy">
+            <div class="p-3 d-flex align-items-start">
+              <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+            <img src="{% static 'img/procurement_transformation.jpg' %}" class="img-fluid w-100" alt="Stock Control">
+            <div class="p-3 d-flex align-items-start">
+              <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+            </div>
+          </div>
+        </div>
+
+           <!-- Card 3 -->
+           <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+              <img src="{% static 'img/quantification_2.jpg' %}" class="img-fluid w-100" alt="Capacity Building">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              </div>
+            </div>
+          </div>
+
+
+           <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+              <img src="{% static 'img/african_finance_consulting.jpg' %}" class="img-fluid w-100" alt="PMS Strategy">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+              <img src="{% static 'img/procurement_2.jpg' %}" class="img-fluid w-100" alt="Stock Control">
+              <div class="p-3 d-flex align-items-start">
+                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              </div>
+            </div>
+          </div>
+  
+             <!-- Card 3 -->
+             <div class="col-md-4">
+              <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+                <img src="{% static 'img/procurement_audit.jpg' %}" class="img-fluid w-100" alt="Capacity Building">
+                <div class="p-3 d-flex align-items-start">
+                  <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                </div>
+              </div>
+            </div>
+    
+  
+  
+
+
+
+    {%endblock%}

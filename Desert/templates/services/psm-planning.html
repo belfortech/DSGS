@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{% block title %}PMS-Planning - Desert Storm Global{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+  <main class="main">
+
+     <!-- Services Hero Section with Overlay -->
+ <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
+  <!-- Purple Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
+
+  <!-- Text Content -->
+  <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
+    <h1 class="text-white fw-bold display-5">PMS Strategy Development and Execution</h1>
+  </div>
+</section>
+<section class="py-5" style="background-color: #F2F2F2;"  data-aos="fade-up" data-aos-delay="200">
+  <div class="container">
+     
+    </div>
+  
+      <div class="mb-4">
+        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
+      </div>
+  
+      <p class="text-muted mb-4">
+        At Desert Storm Global Sourcing & Procurement Consultants, we specialize in delivering comprehensive PMS (Procurement Management System) Strategy Development and Execution services...
+        
+      </p>
+  
+      <h5 class="fw-bold text-primary">Key Components of our PMS Strategy Development and Execution Services:</h5>
+      
+      <div class="ps-3 text-dark">
+        <p><strong>Strategic Planning:</strong> We collaborate closely with our clients to understand their organizational objectives  industry dynamics, and specific procurement challenges. Through a meticulous strategic planning process, we develop a roadmap that aligns the PMS strategy with the overall business goals.</p>
+        <p><strong>Customized Solutions:</strong> Recognizing the unique nature of each business, our experts craft customized PMS solutions that address the specific requirements and challenges faced by our clients. This ensures that the strategy is not only effective but also adaptable to changing market conditions.</p>
+        <p><strong>Implementation Excellence:</strong> Execution is a critical phase in the success of any strategy,Our seasoned professionals bring a wealth of experience to the table, ensuring the seamless implementation of the devised PMS strategy. We work collaboratively with stakeholders to guarantee a smooth transition and minimal disruption to ongoing operations.</p>
+        <p><strong>Performance Measurement and Optimization:</strong> Continuous improvement is ingrained in our approach.We establish key performance indicators (KPIs) and monitoring mechanisms to assess the effectiveness of the implemented PMS strategy. Regular evaluations enable us to identify areas for improvement and make necessary adjustments for optimal performance.</p>
+        <p><strong>Risk Mitigation Strategies:</strong> Our services include the development of robust risk mitigation strategies. We conduct thorough assessments to identify potential risks and vulnerabilities, implementing proactive measures to safeguard the procurement process.</p>
+        <p><strong>Technology Integration:</strong> Embracing technological advancements, we integrate state-of-the-art procurement tools.and technologies to enhance the efficiency of the PMS strategy. This includes the adoption of digital platforms, e-procurement solutions, and data analytics to streamline processes and provide real-time insights.</p>
+        <p><strong>Training and Capacity Building:</strong> Successful implementation also requires a knowledgeable and skilled workforce.Our PMS Strategy Development and Execution services include training programs and capacity-building initiatives to empower your team with the skills and knowledge needed to navigate the evolving procurement landscape.</p>
+
+        
+    </div>
+  </section>
+  {% endblock %}
