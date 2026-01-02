@@ -1,9 +1,0 @@
-PassengerEnabled On
-PassengerAppRoot /home/dsgsprocureconsl/Storm_Global
-PassengerBaseURI /
-
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ / [QSA,L]
-
-
