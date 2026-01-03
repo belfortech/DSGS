@@ -16,54 +16,46 @@
   <main class="main">
 
    <!-- Services Hero Section with Overlay -->
-   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
-    <!-- Purple Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
-  
-    <!-- Text Content -->
-    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
-      <h1 class="text-white fw-bold display-5">Quantification and Budgeting</h1>
+   <section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+    <img src="{% static 'img/about_us.jpg' %}" alt="Quantification and Budgeting" class="hero-bg">
+    <div class="hero-content">
+      <div class="hero-chip"><span class="dot"></span> Service</div>
+      <h1 class="hero-title display-6 mb-2">Quantification and Budgeting</h1>
+      <p class="mb-0 text-white-50">Building realistic, fundable budgets with transparent assumptions.</p>
     </div>
   </section>
 
-<section class="py-5" style="background-color: #F2F2F2;"  data-aos="fade-up" data-aos-delay="200">
+<section class="py-5" style="background-color: #fdf3e8;"  data-aos="fade-up" data-aos-delay="200">
     <div class="container">
-       
-      </div>
-
-
-      <div class="mb-4">
-        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
-      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.1s;">
+            <img src="{% static 'img/PSM_planning.jpg' %}" alt="Quantification visual" class="img-fluid rounded shadow w-100">
+            <div class="p-3">
+              <div class="pill mb-2">Budgeting</div>
+              <p class="mb-0 text-dark">Evidence-based quantification paired with transparent budgeting roadmaps.</p>
+            </div>
+          </div>
+        </div>
   
-      <h5 class="fw-bold text-primary">Key Components of Our Quantification and Budgeting Services:
-    </h5>
-      
-      <div class="ps-3 text-dark">
-       
-<p><strong>Requirements Analysis:</strong>Our process begins with a thorough analysis of your organization’s needs, projects, and strategic objectives. We collaborate closely with key stakeholders to understand project scopes, timelines, and resource requirements.</p>
-
-<p><strong>Cost Estimation and Quantification:</strong>Desert Storm specializes in precise cost estimation and quantification. We leverage industry benchmarks, historical data, and expert judgment to determine the costs associated with various project elements, ensuring a comprehensive and realistic financial assessment.</p>
-
-
-<p><strong>Compliance Audits:</strong>We conduct compliance audits to ensure adherence to industry regulations, internal policies, and legal requirements. Our experts assess the organization’s compliance framework, offering recommendations to mitigate risks and enhance governance.
-</p>
-
-<p><strong>Budget Development:</strong>Building on the quantification process, we develop detailed budgets aligned with your organization’s goals. Our budgeting experts work to allocate resources effectively, prioritize expenditures, and create a comprehensive financial roadmap for successful project execution.
-</p>
-
-
-<p><strong>Risk Assessment and Contingency Planning:</strong>We integrate risk assessment into the quantification and budgeting process, identifying potential risks that could impact project costs. Our team develops contingency plans to mitigate risks, ensuring financial resilience and successful project outcomes.
-</p>
-
-
-<p><strong>Stakeholder Communication:</strong>Clear and transparent communication is crucial for successful budgeting. We facilitate communication with stakeholders, providing detailed explanations of the budgeting process, assumptions made, and potential contingencies. This ensures buy-in and understanding across the organization.
-</p>
-
-<p><strong>Performance Monitoring and Reporting:</strong>Our quantification and budgeting services include robust monitoring and reporting mechanisms. We track actual expenditures against budgeted amounts, providing real-time insights into financial performance. Regular reports offer stakeholders visibility into project financials, enabling informed decision-making.
-</p>
-
-
+        <div class="col-lg-6">
+          <div class="section-header text-start mb-3">
+            <span class="section-eyebrow">What we deliver</span>
+            <h5 class="section-title mb-1">Key components</h5>
+            <div class="section-underline"></div>
+          </div>
+          <div class="stat-card mb-3 reveal" style="--delay: 0.18s;">
+            <ul class="mb-0 text-dark">
+              <li class="mb-2"><strong>Requirements analysis:</strong> Deep review of scopes, timelines, and resources with stakeholders.</li>
+              <li class="mb-2"><strong>Cost estimation:</strong> Benchmarks, historicals, and expert judgment for realistic financial assessments.</li>
+              <li class="mb-2"><strong>Budget development:</strong> Detailed, prioritized budgets aligned to goals and procurement cycles.</li>
+              <li class="mb-2"><strong>Risk & contingency:</strong> Risk assessments with contingency plans for financial resilience.</li>
+              <li class="mb-2"><strong>Stakeholder communication:</strong> Clear assumptions and contingencies to drive buy-in.</li>
+              <li class="mb-0"><strong>Performance monitoring:</strong> Tracking actuals vs. budget with real-time insights and reports.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
         
     </div>
   </section>

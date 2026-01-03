@@ -16,62 +16,55 @@
   <main class="main">
 
    <!-- Services Hero Section with Overlay -->
-   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
-    <!-- Purple Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
-  
-    <!-- Text Content -->
-    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
-      <h1 class="text-white fw-bold display-5">Procurement Transformation</h1>
+   <section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+    <img src="{% static 'img/about_us.jpg' %}" alt="Procurement Transformation" class="hero-bg">
+    <div class="hero-content">
+      <div class="hero-chip"><span class="dot"></span> Service</div>
+      <h1 class="hero-title display-6 mb-2">Procurement Transformation</h1>
+      <p class="mb-0 text-white-50">Re-engineering procurement into a strategic, digital, compliant function.</p>
     </div>
   </section>
 
-<section class="py-5" style="background-color: #F2F2F2;"  data-aos="fade-up" data-aos-delay="200">
+<section class="py-5" style="background-color: #fdf3e8;"  data-aos="fade-up" data-aos-delay="200">
     <div class="container">
-       
-      </div>
-
-
-      <div class="mb-4">
-        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
-      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.1s;">
+            <img src="{% static 'img/PSM_planning.jpg' %}" alt="Procurement transformation visual" class="img-fluid w-100">
+            <div class="p-3">
+              <div class="pill mb-2">Transformation</div>
+              <p class="mb-0 text-dark">Strategic, digital, and compliant procurement that keeps programs moving.</p>
+            </div>
+          </div>
+        </div>
   
-     
-   
+        <div class="col-lg-6">
+          <div class="section-header text-start mb-3">
+            <span class="section-eyebrow">What we deliver</span>
+            <h5 class="section-title mb-1">Key components</h5>
+            <div class="section-underline"></div>
+          </div>
+          <div class="stat-card mb-3 reveal" style="--delay: 0.18s;">
+            <ul class="mb-0 text-dark">
+              <li class="mb-2"><strong>Strategic procurement frameworks:</strong> Redesigning processes from tactical buying to strategic sourcing aligned with goals and donors.</li>
+              <li class="mb-2"><strong>Digital procurement systems:</strong> Selecting and optimizing e-procurement platforms for transparency and real-time reporting.</li>
+              <li class="mb-2"><strong>Process re-engineering:</strong> Removing bottlenecks, cutting lead times, and driving performance-based supplier engagement.</li>
+              <li class="mb-2"><strong>Capability building:</strong> Training and mentorship to sustain improvements with confident internal teams.</li>
+              <li class="mb-0"><strong>Governance & compliance:</strong> Stronger controls, documentation, and audit readiness alongside internal auditors and tender committees.</li>
+            </ul>
+          </div>
 
-
-<h5 class="fw-bold text-primary">Key Components of Our Procurement Transformation Services:</h5>
-
-<div class="ps-3 text-dark">
-
-  <p><strong>Strategic Procurement Frameworks:</strong> We help institutions redesign procurement processes from tactical purchasing to strategic sourcing -aligning procurement with organizational goals, national policies, and donor expectations.</p>
-
-  <p><strong>Digital Procurement Systems:</strong> DSGS guides organizations through the selection, implementation, and optimization of electronic procurement platforms to streamline workflows, enhance transparency, and support real-time reporting.</p>
-
-  <p><strong>Process Re-engineering:</strong> We assess and restructure procurement cycles to eliminate bottlenecks, reduce lead times, and promote performance-based supplier engagement across all categories.</p>
-
-  <p><strong>Capability Building:</strong> Our transformation approach includes training, mentorship, and institutional knowledge transfer-enabling procurement teams to sustain improvements and operate with autonomy and confidence.</p>
-
-  <p><strong>Governance & Compliance Strengthening:</strong> We work with internal auditors, tender committees, and procurement units to implement stronger controls, documentation practices, and audit readiness mechanisms.</p>
-
-</div>
-
-<h5 class="fw-bold text-primary mt-5">Benefits of Choosing Desert Storm for Procurement Transformation:</h5>
-
-<div class="ps-3 text-dark">
-
-  <p><strong>End-to-End Transformation Expertise:</strong> From diagnostics to implementation, we manage the full transformation journey-ensuring procurement is a driver of value, not just a function of compliance.</p>
-
-  <p><strong>Improved Efficiency & Cost Control:</strong> Reengineered processes reduce procurement cycle times, improve budget execution, and enhance supplier responsiveness.</p>
-
-  <p><strong>Enhanced Transparency & Accountability:</strong> Our systems promote traceability, reduce manual errors, and build trust with oversight institutions and donor agencies.</p>
-
-  <p><strong>Technology-Enabled Procurement:</strong> We support digitization to reduce paperwork, automate approvals, and enable real-time tracking of procurement activities and supplier performance.</p>
-
-  <p><strong>Long-Term Sustainability:</strong> Beyond systems and structures, we equip your people with the skills and tools needed to sustain gains and continuously improve procurement operations.</p>
-
-</div>
-
+          <div class="stat-card reveal" style="--delay: 0.26s;">
+            <div class="section-eyebrow text-uppercase" style="font-size: 0.7rem;">Benefits</div>
+            <ul class="mb-0 text-dark">
+              <li class="mb-2"><strong>End-to-end expertise:</strong> Diagnostics through implementation with measurable value.</li>
+              <li class="mb-2"><strong>Efficiency & cost control:</strong> Faster cycles, better budget execution, and responsive suppliers.</li>
+              <li class="mb-2"><strong>Transparency & accountability:</strong> Traceability and reduced manual errors that build trust.</li>
+              <li class="mb-0"><strong>Technology-enabled:</strong> Automated approvals and real-time tracking for sustained gains.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
         
     </div>
   </section>

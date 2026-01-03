@@ -34,85 +34,101 @@
 
 
   <!-- Portfolio Hero Section with Overlay -->
-<section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
-    <!-- Purple Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
-  
-    <!-- Text Content -->
-    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
-      <h1 class="text-white fw-bold display-5">Portfolio</h1>
+<section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+    <img src="{% static 'img/about_us.jpg' %}" alt="Portfolio cover" class="hero-bg">
+    <div class="hero-content">
+      <div class="hero-chip"><span class="dot"></span> Portfolio</div>
+      <h1 class="hero-title display-5 mb-2">Programs we power</h1>
+      <p class="mb-0 text-white-50">Snapshots from procurement and advisory engagements.</p>
     </div>
   </section>
   
   
   <!-- Services Grid -->
-  <section class="py-5" style="background-color: #f2f2f2;"  data-aos="fade-up" data-aos-delay="200">
+  <section class="py-5" style="background-color: #fdf3e8;"  data-aos="fade-up" data-aos-delay="200">
     <div class="container">
+      <div class="section-header mb-5 text-center">
+        <span class="section-eyebrow">Case snapshots</span>
+        <h3 class="section-title">Recent engagements</h3>
+        <div class="section-underline"></div>
+      </div>
       <div class="row g-4">
   
         <!-- Card 1 -->
         <div class="col-md-4">
-          <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.1s;">
             <img src="{% static 'img/psm.jpg' %}" class="img-fluid w-100" alt="PMS Strategy">
-            <div class="p-3 d-flex align-items-start">
-              <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+            <div class="p-3">
+              <div class="pill mb-2">Health PSM</div>
+              <p class="fw-bold mb-1">Multi-country PSM planning</p>
+              <small class="text-muted">Forecasting and risk assessment across donor-funded programs.</small>
             </div>
           </div>
         </div>
   
         <!-- Card 2 -->
         <div class="col-md-4">
-          <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.18s;">
             <img src="{% static 'img/procurement_transformation.jpg' %}" class="img-fluid w-100" alt="Stock Control">
-            <div class="p-3 d-flex align-items-start">
-              <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+            <div class="p-3">
+              <div class="pill mb-2">Transformation</div>
+              <p class="fw-bold mb-1">Procurement modernization</p>
+              <small class="text-muted">Process re-engineering and capacity uplift for a public agency.</small>
             </div>
           </div>
         </div>
 
            <!-- Card 3 -->
            <div class="col-md-4">
-            <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+            <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.26s;">
               <img src="{% static 'img/quantification_2.jpg' %}" class="img-fluid w-100" alt="Capacity Building">
-              <div class="p-3 d-flex align-items-start">
-                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              <div class="p-3">
+                <div class="pill mb-2">Budgeting</div>
+                <p class="fw-bold mb-1">Quantification & budgeting</p>
+                <small class="text-muted">Aligning procurement needs to fundable budgets for NGOs.</small>
               </div>
             </div>
           </div>
 
 
-           <!-- Card 1 -->
+           <!-- Card 4 -->
         <div class="col-md-4">
-            <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+            <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.34s;">
               <img src="{% static 'img/african_finance_consulting.jpg' %}" class="img-fluid w-100" alt="PMS Strategy">
-              <div class="p-3 d-flex align-items-start">
-                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              <div class="p-3">
+                <div class="pill mb-2">Financing</div>
+                <p class="fw-bold mb-1">Global financing structuring</p>
+                <small class="text-muted">Negotiating multi-party sourcing and financing packages.</small>
               </div>
             </div>
           </div>
     
-          <!-- Card 2 -->
+          <!-- Card 5 -->
           <div class="col-md-4">
-            <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+            <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.42s;">
               <img src="{% static 'img/procurement_2.jpg' %}" class="img-fluid w-100" alt="Stock Control">
-              <div class="p-3 d-flex align-items-start">
-                <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+              <div class="p-3">
+                <div class="pill mb-2">Compliance</div>
+                <p class="fw-bold mb-1">Procurement audit</p>
+                <small class="text-muted">Independent reviews to satisfy donor and regulator criteria.</small>
               </div>
             </div>
           </div>
   
-             <!-- Card 3 -->
+             <!-- Card 6 -->
              <div class="col-md-4">
-              <div class="bg-white shadow-sm h-100 overflow-hidden hover-bounce">
+              <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.5s;">
                 <img src="{% static 'img/procurement_audit.jpg' %}" class="img-fluid w-100" alt="Capacity Building">
-                <div class="p-3 d-flex align-items-start">
-                  <div style="width: 4px; height: 100%; background-color: #f4a100; margin-right: 10px;"></div>
+                <div class="p-3">
+                  <div class="pill mb-2">Advisory</div>
+                  <p class="fw-bold mb-1">Strategy & advisory</p>
+                  <small class="text-muted">Designing procurement strategies aligned to national standards.</small>
                 </div>
               </div>
             </div>
     
-  
-  
+
+
 
 
 

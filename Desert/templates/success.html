@@ -1,7 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Message Sent - Desert Storm Global{% endblock %}
+
 {% block content %}
-<div class="container py-5 text-center">
-  <h1 class="text-success">Thank You!</h1>
-  <p>Your message has been sent successfully. We'll get back to you soon.</p>
-  <a href="{% url 'index' %}" class="btn btn-outline-primary mt-3">Return to Home</a>
+<section class="page-hero" data-aos="fade-up" data-aos-delay="120">
+  <img src="{% static 'img/about_us.jpg' %}" alt="Success" class="hero-bg">
+  <div class="hero-content">
+    <div class="hero-chip"><span class="dot"></span> Success</div>
+    <h1 class="hero-title display-6 mb-2">Thank you!</h1>
+    <p class="mb-0 text-white-50">Your message has been sent successfully.</p>
+  </div>
+</section>
+
+<div class="container py-5 text-center" data-aos="fade-up" data-aos-delay="220">
+  <div class="stat-card d-inline-block text-start reveal">
+    <h4 class="fw-bold text-dark mb-1">We received your note</h4>
+    <p class="text-muted mb-3">Our team will respond within one business day.</p>
+    <a href="{% url 'home' %}" class="btn btn-warning text-dark fw-bold px-4">Return to Home</a>
+  </div>
 </div>
 {% endblock %}

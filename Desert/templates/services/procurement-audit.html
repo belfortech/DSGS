@@ -16,63 +16,53 @@
   <main class="main">
 
    <!-- Services Hero Section with Overlay -->
-   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
-    <!-- Purple Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
-  
-    <!-- Text Content -->
-    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
-      <h1 class="text-white fw-bold display-5">Procurement Audit</h1>
+   <section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+    <img src="{% static 'img/about_us.jpg' %}" alt="Procurement Audit" class="hero-bg">
+    <div class="hero-content">
+      <div class="hero-chip"><span class="dot"></span> Service</div>
+      <h1 class="hero-title display-6 mb-2">Procurement Audit</h1>
+      <p class="mb-0 text-white-50">Independent reviews to protect integrity, value, and compliance.</p>
     </div>
   </section>
 
-<section class="py-5" style="background-color: #F2F2F2;"  data-aos="fade-up" data-aos-delay="200">
+<section class="py-5" style="background-color: #fdf3e8;"  data-aos="fade-up" data-aos-delay="200">
     <div class="container">
-       
-      </div>
-
-
-      <div class="mb-4">
-        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
-      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.1s;">
+            <img src="{% static 'img/PSM_planning.jpg' %}" alt="Procurement audit visual" class="img-fluid w-100">
+            <div class="p-3">
+              <div class="pill mb-2">Assurance</div>
+              <p class="mb-0 text-dark">Audit-ready insights that strengthen governance and reduce procurement risk.</p>
+            </div>
+          </div>
+        </div>
   
-      <h5 class="fw-bold text-primary">Key Components of Our Procurement Audit Services:</h5>
-   
-      
-      <div class="ps-3 text-dark">
-       
-<p><strong>Regulatory & Policy Compliance:</strong>We assess alignment with applicable national procurement laws, donor procurement frameworks (e.g., World Bank, USAID, UN), and institutional policies.</p>
+        <div class="col-lg-6">
+          <div class="section-header text-start mb-3">
+            <span class="section-eyebrow">What we review</span>
+            <h5 class="section-title mb-1">Key components</h5>
+            <div class="section-underline"></div>
+          </div>
+          <div class="stat-card mb-3 reveal" style="--delay: 0.18s;">
+            <ul class="mb-0 text-dark">
+              <li class="mb-2"><strong>Regulatory & policy compliance:</strong> Alignment with national laws, donor frameworks (World Bank, USAID, UN), and internal policies.</li>
+              <li class="mb-2"><strong>Process integrity:</strong> Fair, competitive, and transparent tendering, evaluation, and award processes.</li>
+              <li class="mb-2"><strong>Risk identification:</strong> Fraud, conflict of interest, and control weaknesses with actionable mitigation.</li>
+              <li class="mb-0"><strong>Contract management audit:</strong> Post-award delivery, payment, variations, and performance monitoring to ensure obligations are met.</li>
+            </ul>
+          </div>
 
-<p><strong>Process Integrity & Transparency:</strong>Our audits evaluate whether procurement processes—such as tendering, evaluation, and contract award—are conducted fairly, competitively, and transparently. </p>
-
-
-<p><strong>Risk Identification & Mitigation:</strong>We identify procurement risks including fraud, conflict of interest, weak internal controls, and recommend practical mitigation strategies.
-</p>
-
-<p><strong>Contract Management Audit:</strong>We review how contracts are managed post-award—including delivery, payment, variations, and performance monitoring—to ensure obligations are fulfilled efficiently.
-</p>
-
-
-
-
-
-
-<h5 class="fw-bold text-primary">Why Choose DSGS for Your Procurement Audit?</h5>
-
-<p><strong>Independence & Objectivity:</strong>As a trusted third party, we offer impartial insights that foster accountability and improved decision-making.
-</p>
-
-
-<p><strong>Expertise in Public & Donor-Funded Procurement:</strong>Our auditors are well-versed in government frameworks and international donor standards, ensuring relevance across sectors and regions.
-</p>
-
-<p><strong>Confidentiality & Professional Integrity:</strong>We uphold the highest standards of confidentiality, ethics, and professionalism throughout the audit process.
-</p>
-
-
-
-
-
+          <div class="stat-card reveal" style="--delay: 0.26s;">
+            <div class="section-eyebrow text-uppercase" style="font-size: 0.7rem;">Why DSGS</div>
+            <ul class="mb-0 text-dark">
+              <li class="mb-2"><strong>Independence & objectivity:</strong> Impartial insights that foster accountability.</li>
+              <li class="mb-2"><strong>Public & donor expertise:</strong> Deep knowledge of government and international standards.</li>
+              <li class="mb-0"><strong>Confidentiality & integrity:</strong> Ethical, discreet auditing end-to-end.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
         
     </div>
   </section>

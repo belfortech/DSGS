@@ -16,56 +16,52 @@
   <main class="main">
 
    <!-- Services Hero Section with Overlay -->
-   <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;">
-    <!-- Purple Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
-  
-    <!-- Text Content -->
-    <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
-      <h1 class="text-white fw-bold display-5">Audit and Assurance</h1>
+   <section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+    <img src="{% static 'img/about_us.jpg' %}" alt="Audit and Assurance" class="hero-bg">
+    <div class="hero-content">
+      <div class="hero-chip"><span class="dot"></span> Service</div>
+      <h1 class="hero-title display-5 mb-2">Audit and Assurance</h1>
+      <p class="mb-0 text-white-50">Independent, compliance-first audits that add strategic value.</p>
     </div>
   </section>
 
-<section class="py-5" style="background-color: #F2F2F2;">
+<section class="py-5" style="background-color: #fdf3e8;">
     <div class="container">
-       
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.1s;">
+            <img src="{% static 'img/PSM_planning.jpg' %}" alt="Audit visual" class="img-fluid w-100">
+            <div class="p-3">
+              <div class="pill mb-2">Assurance</div>
+              <p class="mb-0 text-dark">Comprehensive reviews that go beyond compliance to build trust with regulators and funders.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-6">
+          <div class="section-header text-start mb-3">
+            <span class="section-eyebrow">What we deliver</span>
+            <h5 class="section-title mb-1">Key components</h5>
+            <div class="section-underline"></div>
+          </div>
+  
+          <div class="stat-card mb-3 reveal" style="--delay: 0.18s;">
+            <ul class="mb-0 text-dark">
+              <li class="mb-2"><strong>Financial audits:</strong> Thorough examinations of statements, records, and processes to prove accuracy and transparency.</li>
+              <li class="mb-2"><strong>Operational audits:</strong> Reviews of procurement, supply chain, and business operations to surface efficiency gains.</li>
+              <li class="mb-2"><strong>Compliance audits:</strong> Checks against industry regulations, policies, and legal requirements with mitigation guidance.</li>
+              <li class="mb-2"><strong>Risk assessment:</strong> Identification of vulnerabilities with actionable management strategies for resilience.</li>
+              <li class="mb-2"><strong>Internal controls:</strong> Strengthening controls to safeguard assets, prevent fraud, and ensure reporting accuracy.</li>
+              <li class="mb-0"><strong>Technology & data audits:</strong> Assessing IT systems, security, and privacy to protect critical data integrity.</li>
+            </ul>
+          </div>
+  
+          <div class="stat-card reveal" style="--delay: 0.28s;">
+            <div class="pill mb-2">Outcome</div>
+            <p class="mb-0 text-dark">Audit-ready documentation, strengthened governance, and clear remediation roadmaps.</p>
+          </div>
+        </div>
       </div>
-  
-      <div class="mb-4">
-        <img src="{% static 'img/PSM_planning.jpg' %}" alt="PMS Strategy Image" class="img-fluid rounded shadow w-100" style="height:400px; object-fit:cover;">
-      </div>
-  
-      <p class="text-muted mb-4">
-        Desert Storm Global Sourcing & Procurement Consultants provides comprehensive Audit & Assurance services tailored to meet the unique needs of businesses operating in diverse industries. Our team of seasoned professionals is dedicated to delivering accurate, reliable, and insightful assessments that go beyond mere compliance to add strategic value to your organization.        
-      </p>
-  
-      <h5 class="fw-bold text-primary">Key Components of Our Audit & Assurance Services:</h5>
-      
-      <div class="ps-3 text-dark">
-       
-<p><strong>Financial Audits:</strong>Our financial audit services ensure the accuracy and reliability of financial statements. We conduct thorough examinations of financial records, transactions, and reporting processes, providing stakeholders with confidence in the financial health and transparency of your organization.</p>
-
-<p><strong>Operational Audits:</strong>Desert Storm performs operational audits to evaluate the efficiency and effectiveness of internal processes. This includes a comprehensive review of procurement, supply chain, and business operations, identifying areas for improvement and optimization.
-</p>
-
-
-<p><strong>Compliance Audits:</strong>We conduct compliance audits to ensure adherence to industry regulations, internal policies, and legal requirements. Our experts assess the organization’s compliance framework, offering recommendations to mitigate risks and enhance governance.
-</p>
-
-<p><strong>Risk Assessment and Management:
-</strong>Our audit services include a robust risk assessment to identify potential risks and vulnerabilities in various aspects of your business. We work collaboratively with your team to develop effective risk management strategies, ensuring proactive mitigation and long-term resilience.
-</p>
-
-
-<p><strong>Internal Controls Evaluation:</strong>Desert Storm evaluates and enhances internal control systems to safeguard assets, prevent fraud, and ensure the accuracy of financial reporting. Our experts provide recommendations for strengthening internal controls to align with industry best practices.
-</p>
-
-
-<p><strong>Technology and Data Audits:</strong>With the increasing reliance on technology, our services include audits of IT systems, data security, and privacy compliance. We assess the effectiveness of information systems, ensuring the confidentiality, integrity, and availability of critical data.
-</p>
-
-
-        
     </div>
   </section>
   {% endblock %}

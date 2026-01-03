@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ service.title }} - Desert Storm Global{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="main">
+
+  <!-- Services Hero Section with Overlay -->
+  <section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+    <img src="{% static 'img/about_us.jpg' %}" alt="{{ service.title }}" class="hero-bg">
+    <div class="hero-content">
+      <div class="hero-chip"><span class="dot"></span> Service</div>
+      <h1 class="hero-title display-5 mb-2">{{ service.title }}</h1>
+      <p class="mb-0 text-white-50">{{ service.description|truncatewords:10 }}</p>
+    </div>
+  </section>
+
+  <section class="py-5" style="background-color: #fdf3e8;">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.1s;">
+            <img src="{% static 'img/PSM_planning.jpg' %}" alt="{{ service.title }} visual" class="img-fluid w-100">
+            <div class="p-3">
+              <div class="pill mb-2">Service</div>
+              <p class="mb-0 text-dark">{{ service.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="section-header text-start mb-3">
+            <span class="section-eyebrow">What we deliver</span>
+            <h5 class="section-title mb-1">Key components</h5>
+            <div class="section-underline"></div>
+          </div>
+
+          <div class="stat-card mb-3 reveal" style="--delay: 0.18s;">
+            <p class="mb-0 text-dark">{{ service.description }}</p>
+          </div>
+
+          <div class="stat-card reveal" style="--delay: 0.28s;">
+            <div class="pill mb-2">Outcome</div>
+            <p class="mb-0 text-dark">Tailored solutions and expert guidance for your {{ service.title|lower }} needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
