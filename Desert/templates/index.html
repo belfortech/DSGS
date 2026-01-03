@@ -8,6 +8,420 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+<style>
+  :root {
+    --brand-navy: #1d1463;
+    --brand-gold: #f4a100;
+    --brand-cream: #fdf3e8;
+    --ink: #0f0b2d;
+    --card-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    --card-shadow-strong: 0 20px 55px rgba(0,0,0,0.12);
+    --glass: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Hero Carousel Zoom Animation */
+  .hero-slide {
+    position: relative;
+    height: 85vh;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 8s ease-out;
+    transform: scale(1);
+  }
+
+  .carousel-item.active .hero-bg {
+    animation: zoomIn 8s ease-out forwards;
+  }
+
+  @keyframes zoomIn {
+    from { transform: scale(1.15); }
+    to { transform: scale(1); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 17, 69, 0.7) 0%, rgba(32, 22, 82, 0.5) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInDown 1s ease forwards 0.3s;
+  }
+
+  .hero-logo img {
+    height: 70px;
+    width: auto;
+    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
+  }
+
+  .hero-logo-text {
+    text-align: left;
+  }
+
+  .hero-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .hero-logo-tagline {
+    font-size: 0.75rem;
+    color: #f4a100;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    max-width: 600px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.7s;
+  }
+
+  .hero-btn {
+    background: linear-gradient(135deg, #f4a100 0%, #ffc947 100%);
+    color: #1a1145;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(244, 161, 0, 0.4);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.9s;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(244, 161, 0, 0.5);
+    color: #1a1145;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Reset animations on slide change */
+  .carousel-item .hero-logo,
+  .carousel-item .hero-title,
+  .carousel-item .hero-subtitle,
+  .carousel-item .hero-btn {
+    opacity: 0;
+  }
+
+  .carousel-item.active .hero-logo {
+    animation: fadeInDown 1s ease forwards 0.3s;
+  }
+
+  .carousel-item.active .hero-title {
+    animation: fadeInUp 1s ease forwards 0.5s;
+  }
+
+  .carousel-item.active .hero-subtitle {
+    animation: fadeInUp 1s ease forwards 0.7s;
+  }
+
+  .carousel-item.active .hero-btn {
+    animation: fadeInUp 1s ease forwards 0.9s;
+  }
+
+  /* Carousel Controls */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-control-prev { left: 30px; }
+  .carousel-control-next { right: 30px; }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background: #f4a100;
+    opacity: 1;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Carousel Indicators */
+  .carousel-indicators {
+    bottom: 30px;
+  }
+
+  .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: 2px solid transparent;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-indicators button.active {
+    background: #f4a100;
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .hero-slide { height: 70vh; }
+    .hero-title { font-size: 2rem; letter-spacing: 1px; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-logo img { height: 50px; }
+    .hero-logo-name { font-size: 1.1rem; }
+    .carousel-control-prev,
+    .carousel-control-next { display: none; }
+  }
+
+  /* Section shells */
+  .section-soft {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(253,243,232,0.92));
+  }
+
+  .section-soft::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(244,161,0,0.12), transparent 30%),
+      radial-gradient(circle at 85% 25%, rgba(26,17,69,0.08), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(244,161,0,0.1), transparent 26%);
+    pointer-events: none;
+  }
+
+  .section-gradient {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 12% 18%, rgba(244,161,0,0.18), transparent 32%), linear-gradient(135deg, #1d1463 0%, #0f0b2d 100%);
+  }
+
+  .section-gradient::before {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+    filter: blur(40px);
+    top: -120px;
+    right: -160px;
+  }
+
+  /* Section headings */
+  .section-header {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    color: var(--brand-gold);
+    font-size: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--brand-gold);
+    display: inline-block;
+  }
+
+  .section-title {
+    color: var(--brand-navy);
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .section-subtitle {
+    max-width: 780px;
+    margin: 0 auto;
+    color: #4d4d5c;
+  }
+
+  .section-underline {
+    width: 78px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-gold), #ffc947);
+    border-radius: 50px;
+    margin: 14px auto 0;
+  }
+
+  /* Cards */
+  .feature-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #f0f0f5;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--card-shadow-strong);
+    border-color: rgba(244,161,0,0.5);
+  }
+
+  .feature-card img {
+    object-fit: cover;
+    height: 200px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+  }
+
+  .hover-bounce {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .hover-bounce:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-strong);
+  }
+
+  .info-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(244,161,0,0.14);
+    color: var(--brand-navy);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(244,161,0,0.35);
+  }
+
+  .info-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--brand-gold);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .feature-line {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    border: 1px solid rgba(26,17,69,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-line:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow);
+  }
+
+  .feature-line img {
+    background: rgba(244,161,0,0.12);
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .glass-card {
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.35);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: riseIn 0.9s ease forwards;
+    animation-delay: var(--delay, 0.15s);
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -30,59 +444,68 @@
 
   <main class="main">
 
-  
+
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
 
     <!-- Slide 1 -->
     <div class="carousel-item active">
-      <div style="
-        background-image: url('{% static "img/dubai_1.jpeg" %}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 70vh;
-        width: 100%;">
-        <div class="container text-center text-white d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
-          <h1 class="display-4 fw-bold">PROCURE WISELY</h1>
-          <p class="lead">Connecting Continents, Procuring Excellence. <br>Your Global Sourcing Partner.</p>
-          <a href="{% url 'about_us' %}" class="btn btn-warning text-dark fw-bold px-4 mt-3">Learn more</a>
+      <section class="hero-slide">
+        <div class="hero-bg" style="background-image: url('{% static "img/dubai_1.jpeg" %}');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-white">
+          <a class="navbar-brand hero-logo" href="{% url 'home' %}">
+            <img src="{% static 'img/desert_logo.png' %}" alt="DSGS Logo">
+            <div class="hero-logo-text">
+              <div class="hero-logo-name">Desert Storm Global</div>
+              <div class="hero-logo-tagline">Procurement Consultants</div>
+            </div>
+          </a>
+          <h1 class="hero-title">PROCURE WISELY</h1>
+          <p class="hero-subtitle">Connecting Continents, Procuring Excellence. <br>Your Global Sourcing Partner.</p>
+          <a href="{% url 'about_us' %}" class="hero-btn">Learn more</a>
         </div>
-      </div>
+      </section>
     </div>
 
     <!-- Slide 2 -->
     <div class="carousel-item">
-      <div style="
-        background-image: url('{% static "img/dubai_2.jpeg" %}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 70vh;
-        width: 100%;">
-        <div class="container text-center text-white d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
-          <h1 class="display-4 fw-bold">SEAMLESS SOURCING</h1>
-          <p class="lead">Tailored procurement solutions across global markets.</p>
-          <a href="{% url 'our_services' %}" class="btn btn-warning text-dark fw-bold px-4 mt-3">Explore Services</a>
+      <section class="hero-slide">
+        <div class="hero-bg" style="background-image: url('{% static "img/dubai_2.jpeg" %}');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-white">
+          <a class="navbar-brand hero-logo" href="{% url 'home' %}">
+            <img src="{% static 'img/desert_logo.png' %}" alt="DSGS Logo">
+            <div class="hero-logo-text">
+              <div class="hero-logo-name">Desert Storm Global</div>
+              <div class="hero-logo-tagline">Procurement Consultants</div>
+            </div>
+          </a>
+          <h1 class="hero-title">SEAMLESS SOURCING</h1>
+          <p class="hero-subtitle">Tailored procurement solutions across global markets.</p>
+          <a href="{% url 'our_services' %}" class="hero-btn">Explore Services</a>
         </div>
-      </div>
+      </section>
     </div>
 
     <!-- Slide 3 -->
     <div class="carousel-item">
-      <div style="
-        background-image: url('{% static "img/dubai_3.jpeg" %}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 70vh;
-        width: 100%;">
-        <div class="container text-center text-white d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
-          <h1 class="display-4 fw-bold">INNOVATE. SOURCE. DELIVER.</h1>
-          <p class="lead">Empowering your supply chain with smart procurement.</p>
-          <a href="{% url 'contact_us' %}" class="btn btn-warning text-dark fw-bold px-4 mt-3">Get Started</a>
+      <section class="hero-slide">
+        <div class="hero-bg" style="background-image: url('{% static "img/dubai_3.jpeg" %}');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-white">
+          <a class="navbar-brand hero-logo" href="{% url 'home' %}">
+            <img src="{% static 'img/desert_logo.png' %}" alt="DSGS Logo">
+            <div class="hero-logo-text">
+              <div class="hero-logo-name">Desert Storm Global</div>
+              <div class="hero-logo-tagline">Procurement Consultants</div>
+            </div>
+          </a>
+          <h1 class="hero-title">INNOVATE. SOURCE. DELIVER.</h1>
+          <p class="hero-subtitle">Empowering your supply chain with smart procurement.</p>
+          <a href="{% url 'contact_us' %}" class="hero-btn">Get Started</a>
         </div>
-      </div>
+      </section>
     </div>
 
   </div>
@@ -98,72 +521,80 @@
 
 
   <!-- Services Section -->
-<section class="py-5 bg-light" data-aos="fade-up" data-aos-delay="200">
-    <div class="container">
-      <div class="row g-4">
-  
+<section class="py-5 section-soft" data-aos="fade-up" data-aos-delay="200">
+    <div class="container position-relative">
+      <div class="section-header text-center mb-5">
+        <span class="section-eyebrow">Our capabilities</span>
+        <h2 class="section-title">Procurement, end-to-end</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle mt-3">Strategic partners across training, financing, and advisory to keep your procurement moving.</p>
+      </div>
+      <div class="row g-4 position-relative">
+
         <!-- Card 1 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 hover-bounce">
+          <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.1s;">
             <img src="{% static 'img/procurement_discussion.jpg' %}" class="card-img-top" alt="Procurement capacity building">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Procurement Capacity Building & Training
-              
-              </h5>
-              <p class="card-text">We strengthen institutional procurement capacity through tailored training programs, workshops, and technical mentorship. Our programs target project implementation units (PIUs), tender committees, and procurement officers.</p>
+              <div class="info-chip mb-3"><span class="info-dot"></span>Capacity building</div>
+              <h5 class="card-title fw-bold mb-3">Procurement Capacity Building & Training</h5>
+              <p class="card-text mb-0">We strengthen institutional procurement capacity through tailored training programs, workshops, and technical mentorship for PIUs, tender committees, and procurement officers.</p>
             </div>
           </div>
         </div>
-  
+
         <!-- Card 2 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 hover-bounce ">
+          <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.2s;">
             <img src="{% static 'img/procurement_transformation.jpg' %}" class="card-img-top" alt="Global Financing">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Global Financing, Sourcing and Negotiation Consultancy</h5>
-              <p class="card-text">At DSGS, we bridge the gap between development priorities and procurement execution by providing strategic consultancy in global financing, sourcing, and negotiation.</p>
+              <div class="info-chip mb-3"><span class="info-dot"></span>Global sourcing</div>
+              <h5 class="card-title fw-bold mb-3">Global Financing, Sourcing and Negotiation Consultancy</h5>
+              <p class="card-text mb-0">We bridge the gap between development priorities and procurement execution with strategic consultancy in global financing, sourcing, and negotiation.</p>
             </div>
           </div>
         </div>
-  
-       
+
+
 
          <!-- Card 3 -->
          <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 overflow-hidden hover-bounce">
+          <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.3s;">
             <img src="{% static 'img/public_procurement.jpg' %}" class="card-img-top" alt="public procurement">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Public Procurement Strategy & Advisory</h5>
-              <p class="card-text">We help government institutions and development agencies design and implement procurement strategies that align with national regulations and international standards.</p>
+              <div class="info-chip mb-3"><span class="info-dot"></span>Advisory</div>
+              <h5 class="card-title fw-bold mb-3">Public Procurement Strategy & Advisory</h5>
+              <p class="card-text mb-0">We help government institutions and development agencies design and implement procurement strategies that align with national regulations and international standards.</p>
             </div>
           </div>
         </div>
 
 
-  
-  
+
+
       </div>
     </div>
   </section>
-  
-  
+
+
 
   <!-- About Section -->
-<section class="py-5" style="background-color: #1d1463;" data-aos="fade-up" data-aos-delay="200">
-  <div class="container">
+<section class="py-5 section-gradient text-white" data-aos="fade-up" data-aos-delay="200">
+  <div class="container position-relative">
     <div class="row align-items-center">
 
       <!-- Text Column -->
-      <div class="col-lg-7 mb-4 mb-lg-0 text-white">
+      <div class="col-lg-7 mb-4 mb-lg-0 text-white reveal" style="--delay: 0.15s;">
+        <div class="info-chip mb-3"><span class="info-dot"></span>About DSGS</div>
         <p class="mb-4 text-white">
           <strong>Desert Storm Global Sourcing & Procurement Consultants</strong> stands as a leading procurement and business consultancy firm catering to Government Institutions and internationally funded organizations. With its headquarters situated in Dubai, our firm strategically positions itself to serve as a vital link connecting Africa and Arab countries.
         </p>
-        <p>
+        <p class="mb-0">
           With a robust portfolio of services, we specialize in providing end-to-end solutions in PMS (Procurement Management System) Strategy Development and Execution, Stock Control, Monitoring, Warehousing, and Distribution, Business Process Re-engineering, PSM (Procurement and Supply Management) Planning, Forecasting, Risk Assessment, and International Business Opportunities.
         </p>
 
         <!-- Highlighted Quote Box -->
-        <div class="p-3 mt-4 border-start border-4 border-warning bg-white text-dark shadow-sm">
+        <div class="p-3 mt-4 border-start border-4 border-warning bg-white text-dark shadow-sm rounded">
           <em>Partner with us to experience excellence in global sourcing and procurement consultancy.</em>
         </div>
 
@@ -176,43 +607,47 @@
       </div>
 
       <!-- Image Column -->
-      <div class="col-lg-5">
-        <img src="{% static 'img/warehouse_management.jpg' %}" alt="warehouse Image" class="img-fluid rounded shadow-sm">
+      <div class="col-lg-5 reveal" style="--delay: 0.3s;">
+        <div class="rounded shadow-sm overflow-hidden">
+          <img src="{% static 'img/warehouse_management.jpg' %}" alt="warehouse Image" class="img-fluid">
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-  
+
  <!-- Why choose us -->
- <section id="why-choose-us" class="py-4 mt-4" style="background-color: #ffffff;" data-aos="fade-up" data-aos-delay="200">
-    
+ <section id="why-choose-us" class="py-5 mt-4 section-soft" data-aos="fade-up" data-aos-delay="200">
+
     <div class="container">
-  
+
       <!-- Section Heading -->
-      <div class="text-center mb-5 ">
-        <h3 class="fw-bold" style="color: #1d1463;">Understanding Our Seamless Process</h3>
+      <div class="section-header text-center mb-5 ">
+        <span class="section-eyebrow">Why choose us</span>
+        <h3 class="section-title">Understanding Our Seamless Process</h3>
+        <div class="section-underline"></div>
       </div>
-  
+
       <!-- Two-Column Layout with Divider -->
       <div class="row">
-       
-  
+
+
         <!-- Left Column -->
         <div class="col-lg-6 pe-lg-5">
           <!-- Feature 1 -->
-          <div class="d-flex align-items-start mb-4">
+          <div class="d-flex align-items-start mb-4 feature-line reveal" style="--delay: 0.12s;">
             <img src="{% static 'img/global.png' %}" alt="Image" class="me-3" style="width: 24px; height: 24px;">
-            
+
             <div>
               <h6 class="fw-bold mb-1 text-dark">Proven Expertise.</h6>
               <p class="small mb-0 text-dark">Our team comprises seasoned professionals with a wealth of experience in global sourcing and procurement.</p>
             </div>
           </div>
-  
+
           <!-- Feature 2 -->
-          <div class="d-flex align-items-start">
+          <div class="d-flex align-items-start feature-line reveal" style="--delay: 0.24s;">
             <img src="{% static 'img/result.png' %}" alt="Image" class="me-3" style="width: 24px; height: 24px;">
             <div>
               <h6 class="fw-bold mb-1 text-dark">Innovation and Technology</h6>
@@ -220,25 +655,25 @@
             </div>
           </div>
         </div>
-  
+
         <!-- Divider -->
         <div class="d-none d-lg-block col-lg-1 px-0 text-center">
           <div style="border-left: 3px solid #f4a100; height: 100%; margin: 0 auto;"></div>
         </div>
-  
+
         <!-- Right Column -->
         <div class="col-lg-5 ps-lg-5 mt-4 mt-lg-0">
           <!-- Feature 3 -->
-          <div class="d-flex align-items-start mb-4">
+          <div class="d-flex align-items-start mb-4 feature-line reveal" style="--delay: 0.18s;">
             <img src="{% static 'img/insights.png' %}" alt="Image" class="me-3" style="width: 24px; height: 24px;">
             <div>
               <h6 class="fw-bold mb-1 text-dark">Client-Centric Approach</h6>
               <p class="small mb-0 text-dark">We prioritize understanding the unique needs of each client, ensuring personalized solutions that drive success.</p>
             </div>
           </div>
-  
+
           <!-- Feature 4 -->
-          <div class="d-flex align-items-start">
+          <div class="d-flex align-items-start feature-line reveal" style="--delay: 0.3s;">
             <img src="{% static 'img/carbon.png' %}" alt="Image" class="me-3" style="width: 24px; height: 24px;">
             <div>
               <h6 class="fw-bold mb-1 text-dark">Strategic Global Network</h6>
@@ -246,12 +681,12 @@
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
   </section>
 
-  
+
 
 
 <!-- Service Highlights with Glass Effect -->
@@ -260,8 +695,8 @@
     <div class="row text-center g-4">
 
       <!-- Card 1 -->
-      <div class="col-md-4" >
-        <div class="p-4 rounded shadow" style="backdrop-filter: blur(10px); background: rgba(255,255,255,0.3);">
+      <div class="col-md-4 reveal" style="--delay: 0.12s;">
+        <div class="p-4 rounded shadow glass-card">
           <img src="{% static 'img/Vector.png' %}" alt="" class="mb-3" style="height: 40px;">
           <h6 class="fw-bold">Procurement Capacity Building & Training</h6>
           <p class="small text-dark">We strengthen institutional procurement capacity through tailored training programs, workshops, and technical mentorship. Our programs target project implementation units (PIUs), tender committees, and procurement officers.</p>
@@ -269,8 +704,8 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="p-4 rounded shadow" style="backdrop-filter: blur(10px); background: rgba(255,255,255,0.3);">
+      <div class="col-md-4 reveal" style="--delay: 0.22s;">
+        <div class="p-4 rounded shadow glass-card">
           <img src="{% static 'img/Vector_2.png' %}" alt="" class="mb-3" style="height: 40px;">
           <h6 class="fw-bold">Global Financing, Sourcing and Negotiation Consultancy</h6>
           <p class="small text-dark">At DSGS, we bridge the gap between development priorities and procurement execution by providing strategic consultancy in global financing, sourcing, and negotiation.</p>
@@ -278,8 +713,8 @@
       </div>
 
       <!-- Card 3 -->
-      <div class="col-md-4">
-        <div class="p-4 rounded shadow" style="backdrop-filter: blur(10px); background: rgba(255,255,255,0.3);">
+      <div class="col-md-4 reveal" style="--delay: 0.32s;">
+        <div class="p-4 rounded shadow glass-card">
           <img src="{% static 'img/Vector_3.png' %}" alt="" class="mb-3" style="height: 40px;">
           <h6 class="fw-bold">Public Procurement Strategy & Advisory</h6>
           <p class="small text-dark">We help government institutions and development agencies design and implement procurement strategies that align with national regulations and international standards.</p>
@@ -295,55 +730,54 @@
   <!-- Our Services Section -->
 <section class="py-5" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
-  
-      <!-- Section Heading -->
-      <div class="text-center mb-5">
 
-            <h2 class="fw-bold mb-3 text-center" style="color:#1d1463;">Our Services</h2>
-    <div class="d-flex justify-content-center mb-5">
-      <div style="height: 4px; width: 60px; background-color: #f4a100; margin-right: 10px;"></div>
-      <div style="height: 4px; width: 60px; background-color: #f4a100;"></div>
-    </div>
-  
+      <!-- Section Heading -->
+      <div class="section-header text-center mb-5">
+        <span class="section-eyebrow">Our Services</span>
+        <h2 class="section-title mb-2">Built to fit your program</h2>
+        <div class="section-underline"></div>
+        <p class="section-subtitle mt-3">From capacity building to transformation, we deliver procurement outcomes with rigor and pace.</p>
+      </div>
+
       <!-- Services Cards -->
       <div class="row g-4">
-  
+
         <!-- Service 1 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+          <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.1s;">
             <img src="{% static 'img/investment.jpg' %}" class="card-img-top" alt="Investment Management">
             <div class="card-body">
               <h5 class="card-title fw-bold text-start" style="color: #1d1463;">Procurement Capacity Building & Training</h5>
               <p class="card-text text-start">We strengthen institutional procurement capacity through tailored training programs, workshops, and technical mentorship. Our programs target project implementation units (PIUs), tender committees, and procurement officers.</p>
-              <a href="{% url 'capacity_building' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+              <a href="{% url 'service_detail' 'procurement-capacity-building-and-training' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                 <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
               </a>
             </div>
           </div>
         </div>
-  
+
         <!-- Service 2 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+          <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.16s;">
             <img src="{% static 'img/procurement_audit.jpg' %}" class="card-img-top" alt="Procurement audit">
             <div class="card-body">
               <h5 class="card-title fw-bold text-start" style="color: #1d1463;"> Procurement Audit & Compliance Reviews</h5>
               <p class="card-text text-start">We conduct independent reviews and procurement audits to assess process integrity, value-for-money, and regulatory compliance.</p>
-              <a href="{% url 'audit_assurance' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+              <a href="{% url 'service_detail' 'audit-and-assurance' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                 <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
               </a>
             </div>
           </div>
         </div>
-  
+
         <!-- Service 3 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+          <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.22s;">
             <img src="{% static 'img/public_procurement.jpg' %}" class="card-img-top" alt="Public Procurement Strategy">
             <div class="card-body">
               <h5 class="card-title fw-bold text-start" style="color: #1d1463;">Public Procurement Strategy & Advisory</h5>
               <p class="card-text text-start">We help government institutions and development agencies design and implement procurement strategies that align with national regulations and international standards.</p>
-              <a href="{% url 'procurement_strategy' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+              <a href="{% url 'service_detail' 'public-procurement-strategy-and-advisory' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                 <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
               </a>
             </div>
@@ -352,40 +786,40 @@
 
         <!-- Service 1 -->
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+            <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.28s;">
               <img src="{% static 'img/african_finance_consulting.jpg' %}" class="card-img-top" alt="Global financing">
               <div class="card-body">
                 <h5 class="card-title fw-bold text-start" style="color: #1d1463;">Global Financing, Sourcing and Negotiation Consultancy</h5>
                 <p class="card-text text-start">At DSGS, we bridge the gap between development priorities and procurement execution by providing strategic consultancy in global financing, sourcing, and negotiation.</p>
-                <a href="{% url 'global_financing' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+                <a href="{% url 'service_detail' 'global-financing-sourcing-and-negotiation-consultancy' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                   <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
                 </a>
               </div>
             </div>
           </div>
-    
+
           <!-- Service 2 -->
           <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+            <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.34s;">
               <img src="{% static 'img/PSM_planning.jpg' %}" class="card-img-top" alt="Stock Control">
               <div class="card-body">
                 <h5 class="card-title fw-bold text-start" style="color: #1d1463;">PSM Planning , Forecasting and Risk Assessment</h5>
                 <p class="card-text text-start">At DSGS, we provide comprehensive Procurement and Supply Management (PSM) planning services to help governments and development partners ensure uninterrupted, value-driven procurement outcomes.</p>
-                <a href="{% url 'psm_planning' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+                <a href="{% url 'service_detail' 'psm-planning' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                   <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
                 </a>
               </div>
             </div>
           </div>
-    
+
           <!-- Service 3 -->
           <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+            <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.4s;">
               <img src="{% static 'img/procurement_transformation.jpg' %}" class="card-img-top" alt="Real Estate Management">
               <div class="card-body">
                 <h5 class="card-title fw-bold text-start" style="color: #1d1463;">Procurement Transformation</h5>
                 <p class="card-text text-start">DSGS empowers public institutions and internationally funded programs to modernize their procurement functions through targeted transformation initiatives.</p>
-                <a href="{% url 'procurement_transformation' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+                <a href="{% url 'service_detail' 'procurement-transformation' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                   <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
                 </a>
               </div>
@@ -394,70 +828,74 @@
 
           <!-- Service 1 -->
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+            <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.46s;">
               <img src="{% static 'img/Placeholder_Image.png' %}" class="card-img-top" alt="Audit">
               <div class="card-body">
                 <h5 class="card-title fw-bold text-start" style="color: #1d1463;">Audit and Assurance</h5>
                 <p class="card-text text-start">At DSGS, we provide independent audit and assurance services tailored to procurement systems and processes within public institutions and development programs.</p>
-                <a href="{% url 'audit_assurance' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+                <a href="{% url 'service_detail' 'audit-and-assurance' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                   <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
                 </a>
               </div>
             </div>
           </div>
-    
+
           <!-- Service 2 -->
           <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+            <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.52s;">
               <img src="{% static 'img/Quantification.png' %}" class="card-img-top" alt="Budgeting">
               <div class="card-body">
                 <h5 class="card-title fw-bold text-start" style="color: #1d1463;">Quantification and Budgeting</h5>
                 <p class="card-text text-start">DSGS supports governments, NGOs, and development partners in accurately quantifying procurement needs and aligning them with realistic, fundable budgets.</p>
-                <a href="{% url 'quantification_budgeting' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
+                <a href="{% url 'service_detail' 'quantification-and-budgeting' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3" style="color: #1d1463;">
                   <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
                 </a>
               </div>
             </div>
           </div>
-    
-       
-    
+
+
+
           <!-- Service 3 -->
           <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 bg-light hover-bounce">
+            <div class="card border-0 h-100 feature-card reveal" style="--delay: 0.58s;">
               <img src="{% static 'img/international_business.png' %}" class="card-img-top" alt="International Business">
               <div class="card-body">
                 <h5 class="card-title fw-bold text-start" style="color: #1d1463;">International Business Opportunities</h5>
                 <p class="card-text text-start">At DSGS, we connect governments, private sector players, and development partners to vetted international business opportunities across Africa, the Gulf region, and globally.</p>
-                <a href="{% url 'international_business' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3 " style="color: #1d1463;">
+                <a href="{% url 'service_detail' 'international-business-opportunities' %}" class="text-decoration-none fw-bold d-flex align-items-center mt-3 " style="color: #1d1463;">
                   <i class="bi bi-arrow-right-circle text-warning me-1"></i> Read More
                 </a>
-                
-                
+
+
               </div>
             </div>
           </div>
-    
-    
-    
-  
+
+
+
+
       </div>
     </div>
-    
+
   </section>
-  
+
 <!-- Testimonials Section -->
 <section class="py-5" style="background: linear-gradient(to bottom, #ffffff 0%, #fdf3e8 100%);" data-aos="fade-up" data-aos-delay="200">
   <div class="container">
 
     <!-- Heading -->
-    <h2 class="text-center fw-bold mb-5" style="color: #1d1463;">Testimonials</h2>
+    <div class="section-header text-center mb-5">
+      <span class="section-eyebrow">Testimonials</span>
+      <h2 class="section-title">What partners say</h2>
+      <div class="section-underline"></div>
+    </div>
 
     <div class="row g-4">
 
       <!-- Testimonial 1 -->
       <div class="col-md-4">
-        <div class="bg-white p-4 rounded shadow-sm h-100 hover-bounce">
+        <div class="bg-white p-4 rounded shadow-sm h-100 hover-bounce reveal" style="--delay: 0.12s;">
           <div class="d-flex align-items-center mb-3">
             <img src="{% static 'img/testimonials_1.jpg' %}" class="rounded-circle me-3" width="48" height="48" alt="User photo">
             <div>
@@ -479,7 +917,7 @@
 
       <!-- Testimonial 2 -->
       <div class="col-md-4">
-        <div class="bg-white p-4 rounded shadow-sm h-100 hover-bounce">
+        <div class="bg-white p-4 rounded shadow-sm h-100 hover-bounce reveal" style="--delay: 0.22s;">
           <div class="d-flex align-items-center mb-3">
             <img src="{% static 'img/testimonials_4.jpg' %}" class="rounded-circle me-3" width="48" height="48" alt="User photo">
             <div>
@@ -501,7 +939,7 @@
 
       <!-- Testimonial 3 -->
       <div class="col-md-4">
-        <div class="bg-white p-4 rounded shadow-sm h-100 hover-bounce">
+        <div class="bg-white p-4 rounded shadow-sm h-100 hover-bounce reveal" style="--delay: 0.32s;">
           <div class="d-flex align-items-center mb-3">
             <img src="{% static 'img/testimonial_3.jpg' %}" class="rounded-circle me-3" width="48" height="48" alt="User photo">
             <div>
@@ -531,22 +969,24 @@
   <div class="container">
 
     <!-- Heading -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold" style="color: #1d1463;">Get in Touch</h2>
-      <p class="text-muted">Would you like to speak to one of our financial advisers over the phone? Just submit your details and we’ll be in touch shortly. You can also email us if you would prefer.</p>
+    <div class="section-header text-center mb-5">
+      <span class="section-eyebrow">Contact</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="section-underline"></div>
+      <p class="section-subtitle mt-3">Would you like to speak to one of our financial advisers over the phone? Submit your details and we’ll be in touch shortly—or email us if you prefer.</p>
     </div>
 
     <!-- Contact Info & Map -->
     <div class="row align-items-center g-4">
 
       <!-- Contact Info -->
-      <div class="col-md-6">
+      <div class="col-md-6 reveal" style="--delay: 0.12s;">
         <div class="mb-4">
           <i class="bi bi-envelope-fill text-warning me-2"></i>
           <strong class="text-dark">Email</strong><br>
           <small class="text-muted">Reach us at</small><br>
           <a href="mailto:ceo@dsgs-procureconslt.com" class="text-dark fw-semibold">info@dsgs-procureconslt.com</a><br>
-          
+
 
         </div>
 
@@ -563,19 +1003,19 @@
           <i class="bi bi-geo-alt-fill text-warning me-2"></i>
           <strong class="text-dark">Our Offices</strong><br>
           <small class="text-muted">Visit us at</small><br>
-          <span class="fw-semibold text-dark d-block">Trade Centre First, Sheikh Zayed Road, Dubai <span class ="badge bg-warning text-dark ms-1">Other Branch</span> 
+          <span class="fw-semibold text-dark d-block">Trade Centre First, Sheikh Zayed Road, Dubai <span class ="badge bg-warning text-dark ms-1">Other Branch</span>
           <br>
-          
+
           <span class="fw-semibold text-dark">Konge Buzinga,Plot 2068 Posta Road, Uganda</span>
 
         </div>
       </div>
-      
+
 
       <!-- Map -->
-      <div class="col-md-6">
+      <div class="col-md-6 reveal" style="--delay: 0.22s;">
         <div class="rounded overflow-hidden shadow-sm">
-         
+
 <iframe
 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.941871822133!2d55.134505674019856!3d25.06995923684513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f13435f3abe57%3A0xb4c00b9d46311cd0!2sSheikh%20Zayed%20Rd%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2ske!4v1747292522694!5m2!1sen!2ske"
 width="100%" height="300"

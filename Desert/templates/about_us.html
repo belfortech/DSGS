@@ -8,6 +8,184 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}">
+<style>
+  :root {
+    --brand-navy: #1d1463;
+    --brand-navy-dark: #0f0b2d;
+    --brand-gold: #f4a100;
+    --brand-cream: #fdf3e8;
+    --muted-ink: #4b4b5c;
+    --card-shadow: 0 18px 48px rgba(0,0,0,0.08);
+  }
+
+  .page-hero {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,17,69,0.78) 0%, rgba(15,11,45,0.82) 100%);
+    z-index: 1;
+  }
+
+  .page-hero img,
+  .page-hero .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 0 16px;
+  }
+
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-chip .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brand-gold);
+  }
+
+  .hero-title {
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 12px 32px rgba(0,0,0,0.32);
+  }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 800;
+    color: var(--brand-gold);
+    font-size: 0.78rem;
+  }
+
+  .section-eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--brand-gold);
+  }
+
+  .section-title {
+    color: var(--brand-navy);
+    font-weight: 800;
+    letter-spacing: 0.6px;
+  }
+
+  .section-subtitle {
+    max-width: 780px;
+    margin: 0 auto;
+    color: var(--muted-ink);
+  }
+
+  .section-underline {
+    width: 78px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-gold), #ffc947);
+    border-radius: 50px;
+    margin: 14px auto 0;
+  }
+
+  .feature-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #f1f1f6;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    border-color: rgba(244,161,0,0.6);
+  }
+
+  .feature-card img {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    object-fit: cover;
+    width: 100%;
+    height: 220px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(244,161,0,0.14);
+    border: 1px solid rgba(244,161,0,0.3);
+    color: var(--brand-navy);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .stat-card {
+    background: linear-gradient(145deg, #fff, #f7f3ff);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #efeafc;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+
+  .cta-panel {
+    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-dark) 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.16);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    animation: riseIn 0.85s ease forwards;
+    animation-delay: var(--delay, 0.15s);
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -31,44 +209,67 @@
   <main class="main">
 
  <!-- Portfolio Hero Section  -->
- <section class="position-relative" style="height: 300px; background: url('{% static "img/about_us.jpg" %}') center center / cover no-repeat;" data-aos="fade-up" data-aos-delay="200">
-  <!-- Purple Overlay -->
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(32, 22, 82, 0.7); z-index: 1;"></div>
-
-  <!-- Text Content -->
-  <div class="container h-100 position-relative z-2 d-flex align-items-center justify-content-center">
-    <h1 class="text-white fw-bold display-5">About us</h1>
+ <section class="page-hero" data-aos="fade-up" data-aos-delay="150">
+  <img src="{% static 'img/about_us.jpg' %}" alt="About DSGS" class="hero-bg">
+  <div class="hero-content">
+    <div class="hero-chip"><span class="dot"></span> About DSGS</div>
+    <h1 class="hero-title display-5 mb-2">Procurement with purpose</h1>
+    <p class="mb-0 text-white-50">Strategic partners bridging continents through disciplined sourcing.</p>
   </div>
 </section>
   
   <!-- Company Overview Content -->
   <section class="py-5" style="background-color: #fff;" data-aos="fade-up" data-aos-delay="200">
     <div class="container px-md-5" style="color: #201652;">
-  
-      <h2 class="fw-bold mb-4" style="color: #201652;">Company overview</h2>
-  
-      <p>
-        Desert Storm Global Sourcing & Procurement Consultants stands as a leading procurement and business consultancy firm catering to Government Institutions and internationally funded organizations. With its headquarters situated in Dubai, our firm strategically positions itself to serve as a vital link connecting Africa and Arab countries.
-      </p>
-  
-      <p>
-        At Desert Storm, we understand the critical role that procurement plays in shaping the success of businesses across diverse industries. Our team of seasoned experts brings a wealth of experience and a global perspective to the table, ensuring that our clients receive tailored, innovative, and sustainable solutions. We take pride in being at the forefront of driving efficiency and effectiveness in procurement processes, empowering our clients to navigate the complexities of the international business landscape with confidence.
-      </p>
-  
-      <p>
-        Key pillars of our expertise include PMS Strategy Development and Execution, where we collaboratively work with clients to design and implement robust procurement strategies aligned with their organizational goals. Additionally, our proficiency in Stock Control, Monitoring, Warehousing, and Distribution ensures optimal supply chain management, minimizing risks and enhancing overall operational efficiency.
-      </p>
-  
-      <p>
-        Business Process Re-engineering is a core competency at Desert Storm, where we analyze, optimize, and streamline existing procurement processes to unlock greater value. Our PSM Planning, Forecasting, and Risk Assessment services provide clients with the foresight needed to make informed decisions, mitigate potential challenges, and capitalize on emerging opportunities in the market.
-      </p>
-  
-      <p>
-        We take pride in our ability to identify and nurture strategic opportunities that allow our clients to expand their global footprint and thrive in the dynamic business landscape. Our commitment to excellence is reflected in our client-centric approach, attention to detail, and consistent delivery of measurable results.
-      </p>
-      <p>
-        As a trusted partner in procurement and business consultancy, Desert Storm Global Sourcing & Procurement Consultants is poised to propel your organization towards success by optimizing processes, mitigating risks, and unlocking new avenues for growth. Discover the Desert Storm advantage – where expertise meets excellence in global sourcing and procurement.
-      </p>
+      <div class="section-header mb-4">
+        <span class="section-eyebrow">Who we are</span>
+        <h2 class="section-title">Company overview</h2>
+        <div class="section-underline"></div>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-8">
+          <p class="reveal" style="--delay: 0.1s;">
+            Desert Storm Global Sourcing & Procurement Consultants stands as a leading procurement and business consultancy firm catering to Government Institutions and internationally funded organizations. With its headquarters situated in Dubai, our firm strategically positions itself to serve as a vital link connecting Africa and Arab countries.
+          </p>
+      
+          <p class="reveal" style="--delay: 0.16s;">
+            At Desert Storm, we understand the critical role that procurement plays in shaping the success of businesses across diverse industries. Our team of seasoned experts brings a wealth of experience and a global perspective to the table, ensuring that our clients receive tailored, innovative, and sustainable solutions. We take pride in being at the forefront of driving efficiency and effectiveness in procurement processes, empowering our clients to navigate the complexities of the international business landscape with confidence.
+          </p>
+      
+          <p class="reveal" style="--delay: 0.22s;">
+            Key pillars of our expertise include PMS Strategy Development and Execution, where we collaboratively work with clients to design and implement robust procurement strategies aligned with their organizational goals. Additionally, our proficiency in Stock Control, Monitoring, Warehousing, and Distribution ensures optimal supply chain management, minimizing risks and enhancing overall operational efficiency.
+          </p>
+      
+          <p class="reveal" style="--delay: 0.28s;">
+            Business Process Re-engineering is a core competency at Desert Storm, where we analyze, optimize, and streamline existing procurement processes to unlock greater value. Our PSM Planning, Forecasting, and Risk Assessment services provide clients with the foresight needed to make informed decisions, mitigate potential challenges, and capitalize on emerging opportunities in the market.
+          </p>
+      
+          <p class="reveal" style="--delay: 0.34s;">
+            We take pride in our ability to identify and nurture strategic opportunities that allow our clients to expand their global footprint and thrive in the dynamic business landscape. Our commitment to excellence is reflected in our client-centric approach, attention to detail, and consistent delivery of measurable results.
+          </p>
+          <p class="reveal mb-0" style="--delay: 0.4s;">
+            As a trusted partner in procurement and business consultancy, Desert Storm Global Sourcing & Procurement Consultants is poised to propel your organization towards success by optimizing processes, mitigating risks, and unlocking new avenues for growth. Discover the Desert Storm advantage - where expertise meets excellence in global sourcing and procurement.
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <div class="stat-card reveal" style="--delay: 0.22s;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="pill"><span class="dot" style="background: var(--brand-gold); width: 8px; height: 8px; border-radius: 50%; display: inline-block;"></span>Our footprint</span>
+              <i class="bi bi-globe-americas text-warning fs-5"></i>
+            </div>
+            <p class="mb-1 fw-bold text-dark">Africa ↔ Gulf corridor</p>
+            <small class="text-muted">Linking donor-funded programs with vetted suppliers across continents.</small>
+          </div>
+          <div class="stat-card mt-3 reveal" style="--delay: 0.32s;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="pill"><span class="dot" style="background: var(--brand-gold); width: 8px; height: 8px; border-radius: 50%; display: inline-block;"></span>Focus</span>
+              <i class="bi bi-graph-up text-warning fs-5"></i>
+            </div>
+            <p class="mb-1 fw-bold text-dark">Audit-ready delivery</p>
+            <small class="text-muted">Compliance-first execution for donor, government, and multilateral projects.</small>
+          </div>
+        </div>
+      </div>
   
     </div>
   </section>
@@ -76,24 +277,39 @@
 
 
   <!-- Mission & How We Work Section -->
-<section class="py-5" style="background-color: #e49e3c;" data-aos="fade-up" data-aos-delay="200">
+<section class="py-5" style="background: linear-gradient(135deg, #fdf3e8 0%, #ffffff 100%);" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
-      <div class="row text-white">
+      <div class="section-header mb-5">
+        <span class="section-eyebrow">Our principles</span>
+        <h3 class="section-title">Mission & how we work</h3>
+        <div class="section-underline"></div>
+      </div>
+      <div class="row g-4">
   
         <!-- Mission Column -->
-        <div class="col-md-6 mb-4 mb-md-0">
-          <h5 class="fw-bold text-dark">Mission</h5>
-          <p class="text-dark small" style="text-align: justify;">
-            At Desert Storm Global Sourcing & Procurement Consultants, our mission is to empower businesses with strategic and sustainable sourcing solutions. We are dedicated to fostering growth, innovation, and efficiency by providing unparalleled procurement expertise. Through collaborative partnerships and a commitment to excellence, we aim to optimize supply chains, drive cost-effective solutions, and navigate the complexities of the global marketplace. Our unwavering dedication to integrity, transparency, and client success propels us to be the trusted catalyst for transformative procurement experiences.
-          </p>
+        <div class="col-md-6 reveal" style="--delay: 0.15s;">
+          <div class="stat-card h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5 class="fw-bold text-dark mb-0">Mission</h5>
+              <span class="pill">Impact first</span>
+            </div>
+            <p class="text-dark small mb-0" style="text-align: justify;">
+              At Desert Storm Global Sourcing & Procurement Consultants, our mission is to empower businesses with strategic and sustainable sourcing solutions. We are dedicated to fostering growth, innovation, and efficiency by providing unparalleled procurement expertise. Through collaborative partnerships and a commitment to excellence, we aim to optimize supply chains, drive cost-effective solutions, and navigate the complexities of the global marketplace. Our unwavering dedication to integrity, transparency, and client success propels us to be the trusted catalyst for transformative procurement experiences.
+            </p>
+          </div>
         </div>
   
         <!-- How We Work Column -->
-        <div class="col-md-6">
-          <h5 class="fw-bold text-dark">How we work</h5>
-          <p class="text-dark small" style="text-align: justify;">
-            Desert Storm Global Sourcing & Procurement Consultants envisions a future where businesses thrive in a seamlessly connected global marketplace. Our vision is to be the forefront of innovation in sourcing and procurement, leading organizations towards sustainable growth and operational excellence. We aspire to build enduring partnerships, foster a culture of continuous improvement, and redefine industry standards. By leveraging cutting-edge technologies and a global perspective, we aim to be the driving force behind the success stories of businesses across borders, transcending challenges, and shaping a resilient and prosperous business landscape.
-          </p>
+        <div class="col-md-6 reveal" style="--delay: 0.25s;">
+          <div class="stat-card h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5 class="fw-bold text-dark mb-0">How we work</h5>
+              <span class="pill">Always-on rigor</span>
+            </div>
+            <p class="text-dark small mb-0" style="text-align: justify;">
+              Desert Storm Global Sourcing & Procurement Consultants envisions a future where businesses thrive in a seamlessly connected global marketplace. Our vision is to be the forefront of innovation in sourcing and procurement, leading organizations towards sustainable growth and operational excellence. We aspire to build enduring partnerships, foster a culture of continuous improvement, and redefine industry standards. By leveraging cutting-edge technologies and a global perspective, we aim to be the driving force behind the success stories of businesses across borders, transcending challenges, and shaping a resilient and prosperous business landscape.
+            </p>
+          </div>
         </div>
   
       </div>
@@ -105,32 +321,46 @@
   <!-- Services  Section -->
 <section class="py-5 bg-white" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
+      <div class="section-header mb-5">
+        <span class="section-eyebrow">Core strengths</span>
+        <h3 class="section-title">What we deliver</h3>
+        <div class="section-underline"></div>
+      </div>
       <div class="row g-4">
   
         <!-- Service 1 -->
         <div class="col-md-4">
-          <div class="border hover-bounce overflow-hidden" style="border: 1px solid #f4a100; padding: 16px;">
-            <img src="{% static 'img/procurement_discussion.jpg' %}" class="img-fluid mb-3" alt="Procurement Capacity">
-            <h6 class="fw-bold" style="color: #201652;">Procurement Capacity Building and Training</h6>
-            <p class="small text-dark" style="text-align: justify;">We strengthen institutional procurement capacity through tailored training programs, workshops, and technical mentorship.Our programs target project implementation units (PIUs),tender committees, and procurement officers.</p>
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.12s;">
+            <img src="{% static 'img/procurement_discussion.jpg' %}" class="mb-3" alt="Procurement Capacity">
+            <div class="px-3 pb-4">
+              <div class="pill mb-2">Capacity</div>
+              <h6 class="fw-bold" style="color: #201652;">Procurement Capacity Building and Training</h6>
+              <p class="small text-dark mb-0" style="text-align: justify;">We strengthen institutional procurement capacity through tailored training programs, workshops, and technical mentorship. Our programs target project implementation units (PIUs), tender committees, and procurement officers.</p>
+            </div>
           </div>
         </div>
   
         <!-- Service 2 -->
         <div class="col-md-4">
-          <div class="border hover-bounce overflow-hidden" style="border: 1px solid #f4a100; padding: 16px;">
-            <img src="{% static 'img/procurement_transformation.jpg' %}" class="img-fluid mb-3" alt="Global Sourcing">
-            <h6 class="fw-bold" style="color: #201652;">Global Financing, Sourcing and Negotiation Consultancy</h6>
-            <p class="small text-dark" style="text-align: justify;">At DSGS, we bridge the gap between development priorities and procurement execution by providing strategic consultancy in global financing,sourcing and negotiation.</p>
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.2s;">
+            <img src="{% static 'img/procurement_transformation.jpg' %}" class="mb-3" alt="Global Sourcing">
+            <div class="px-3 pb-4">
+              <div class="pill mb-2">Financing & sourcing</div>
+              <h6 class="fw-bold" style="color: #201652;">Global Financing, Sourcing and Negotiation Consultancy</h6>
+              <p class="small text-dark mb-0" style="text-align: justify;">At DSGS, we bridge the gap between development priorities and procurement execution by providing strategic consultancy in global financing, sourcing and negotiation.</p>
+            </div>
           </div>
         </div>
   
         <!-- Service 3 -->
         <div class="col-md-4">
-          <div class="border hover-bounce overflow-hidden" style="border: 1px solid #f4a100; padding: 16px;">
-            <img src="{% static 'img/public_procurement.jpg' %}" class="img-fluid mb-3" alt="Public Procurement">
-            <h6 class="fw-bold" style="color: #201652;">Public Procurement Strategy and Advisory</h6>
-            <p class="small text-dark" style="text-align: justify;">We help government institutions and development agencies design and implement procurement strategies that align with national regulations and international standards.</p>
+          <div class="feature-card h-100 overflow-hidden reveal" style="--delay: 0.28s;">
+            <img src="{% static 'img/public_procurement.jpg' %}" class="mb-3" alt="Public Procurement">
+            <div class="px-3 pb-4">
+              <div class="pill mb-2">Advisory</div>
+              <h6 class="fw-bold" style="color: #201652;">Public Procurement Strategy and Advisory</h6>
+              <p class="small text-dark mb-0" style="text-align: justify;">We help government institutions and development agencies design and implement procurement strategies that align with national regulations and international standards.</p>
+            </div>
           </div>
         </div>
   
@@ -140,18 +370,20 @@
 
 
   <!-- Call-to-Action Section -->
-<section class="py-4" data-aos="fade-up" data-aos-delay="200">
+<section class="py-5" data-aos="fade-up" data-aos-delay="200">
     <div class="container">
-      <div class="border px-4 py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="cta-panel d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
   
         <!-- CTA Text -->
-        <h6 class="fw-bold text-dark mb-3 mb-md-0">
-          Looking for a First-Class Business Plan Consultant?
-        </h6>
+        <div>
+          <div class="pill mb-2" style="background: rgba(255,255,255,0.18); color: #fff; border-color: rgba(255,255,255,0.3);">Let’s talk</div>
+          <h4 class="fw-bold mb-2">Looking for a first-class procurement partner?</h4>
+          <p class="mb-0 text-white-50">Tell us about your program—let’s build a compliant, audit-ready sourcing plan together.</p>
+        </div>
   
         <!-- Button -->
         <a href="{% url 'contact_us' %}" class="btn btn-warning text-dark fw-bold px-4">
-          get a quote
+          Get a quote
         </a>
       </div>
     </div>
